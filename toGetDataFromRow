@@ -1,0 +1,53 @@
+// ...
+
+function handleDownloadButtonClick(event) {
+  const row = event.target.closest('tr'); // Find the closest parent <tr> element
+  const cells = row.querySelectorAll('td'); // Find all <td> elements within the row
+
+  const rowData = Array.from(cells).map(cell => cell.textContent); // Extract the text content of each cell
+  
+  // Perform your desired action with the rowData (e.g., download)
+
+  console.log(rowData);
+}
+
+// ...
+
+// Add event listeners to download buttons
+const downloadButtons = document.querySelectorAll('.btn-download');
+downloadButtons.forEach(button => {
+  button.addEventListener('click', handleDownloadButtonClick);
+});
+
+// ...
+
+
+//In Object
+
+// ...
+
+function handleDownloadButtonClick(event) {
+  const row = event.target.closest('tr'); // Find the closest parent <tr> element
+  const cells = row.querySelectorAll('td'); // Find all <td> elements within the row
+
+  const rowData = {}; // Initialize an empty object
+
+  cells.forEach(cell => {
+    const header = cell.closest('table').querySelector('th:nth-child(' + (cell.cellIndex + 1) + ')').textContent;
+    rowData[header] = cell.textContent;
+  });
+  
+  // Perform your desired action with the rowData (e.g., download)
+
+  console.log(rowData);
+}
+
+// ...
+
+// Add event listeners to download buttons
+const downloadButtons = document.querySelectorAll('.btn-download');
+downloadButtons.forEach(button => {
+  button.addEventListener('click', handleDownloadButtonClick);
+});
+
+// ...
