@@ -1,0 +1,30 @@
+function handleUpdateButtonClick(event) {
+    const row = event.target.closest('tr'); // Find the closest parent <tr> element
+    const cells = row.querySelectorAll('td'); // Find all <td> elements within the row
+  
+    // Extract the text content of the cells for columns 1, 2, and 3
+    const field1Value = cells[0].textContent;
+    const field2Value = cells[1].textContent;
+    const field3Value = cells[2].textContent;
+  
+    // Set the values in the update form
+    const updateField1 = document.getElementById('updateField1');
+    const updateField2 = document.getElementById('updateField2');
+    const updateField3 = document.getElementById('updateField3');
+  
+    updateField1.value = field1Value;
+    updateField2.value = field2Value;
+    updateField3.value = field3Value;
+  
+    // Display the update form
+    const updateForm = document.getElementById('updateForm');
+    updateForm.style.display = 'block';
+  }
+  
+  // ...
+  
+  // Add event listeners to update buttons
+  const updateButtons = document.querySelectorAll('.btn-update');
+  updateButtons.forEach(button => {
+    button.addEventListener('click', handleUpdateButtonClick);
+  });
